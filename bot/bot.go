@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/majorthorn/mthornbot/config"
-
 	"github.com/bwmarrin/discordgo"
+	"github.com/majorthorn/mthornbot/config"
 )
 
 var botID string
