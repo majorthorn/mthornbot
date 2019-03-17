@@ -26,7 +26,7 @@ func ReadConfig() error {
 
 	file, err := ioutil.ReadFile("config/config.json")
 	if err != nil {
-		fmt.Printf("error reading config: %d", err)
+		fmt.Println(err.Error())
 		return err
 	}
 
@@ -35,7 +35,7 @@ func ReadConfig() error {
 	err = json.Unmarshal(file, &config)
 
 	if err != nil {
-		fmt.Printf("error attempting to unmarshal config: %d", err)
+		fmt.Println(err.Error())
 		return err
 	}
 	Token = config.Token

@@ -15,7 +15,7 @@ var goBot *discordgo.Session
 func Start() {
 	goBot, err := discordgo.New("Bot " + config.Token)
 	if err != nil {
-		fmt.Printf("Error creating session: %d", err)
+		fmt.Println(err.Error())
 		return
 	}
 	u, err := goBot.User("@me")
@@ -30,7 +30,7 @@ func Start() {
 
 	err = goBot.Open()
 	if err != nil {
-		fmt.Printf("Error opening websocket: %d", err)
+		fmt.Println(err.Error())
 		return
 	}
 	fmt.Println("Bot is running")
@@ -45,7 +45,7 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if m.Content == "!ping" {
 			_, err := s.ChannelMessageSend(m.ChannelID, "pong")
 			if err != nil {
-				fmt.Printf("Error sending message: %d", err)
+				fmt.Println(err.Error())
 			}
 
 		}
