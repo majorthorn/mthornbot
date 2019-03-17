@@ -38,17 +38,31 @@ func Start() {
 
 func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if strings.HasPrefix(m.Content, config.BotPrefix) {
-		if m.Author.ID == botID {
-			return
-		}
+		prefix := config.BotPrefix
 
-		if m.Content == "!ping" {
-			_, err := s.ChannelMessageSend(m.ChannelID, "pong")
+		switch {
+		case m.Author.ID == botID:
+			fmt.Println("Bot said ", m.Content)
+			return
+		case m.Content == prefix+"ping":
+			_, err := s.ChannelMessageSend(m.ChannelID, "!ping")
 			if err != nil {
 				fmt.Println(err.Error())
 			}
-
 		}
+
+		/* 		if m.Author.ID == botID {
+		   			return
+		   		}
+
+		   		if m.Content == "!ping" {
+		   			_, err := s.ChannelMessageSend(m.ChannelID, "pong")
+		   			if err != nil {
+		   				fmt.Println(err.Error())
+		   			}
+
+		   		}
+		*/
 	}
 	// End Code from Tutorial from mgerb42 on Youtube
 }
