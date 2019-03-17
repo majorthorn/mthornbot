@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/majorthorn/mthornbot/config"
-
 	"github.com/bwmarrin/discordgo"
+	"github.com/majorthorn/mthornbot/config"
 )
 
 var botID string
@@ -14,7 +13,6 @@ var goBot *discordgo.Session
 
 //Start : Starts the bot
 func Start() {
-	fmt.Println("test", discordgo.APIVersion)
 	goBot, err := discordgo.New("Bot " + config.Token)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -45,7 +43,10 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 
 		if m.Content == "!ping" {
-			_, _ = s.ChannelMessageSend(m.ChannelID, "pong")
+			_, err := s.ChannelMessageSend(m.ChannelID, "pong")
+			if err != nil {
+				fmt.Println(err.Error())
+			}
 
 		}
 	}
