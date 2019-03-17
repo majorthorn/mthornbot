@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/majorthorn/Go-Random/testbed1/config"
+	"github.com/majorthorn/mthornbot/config"
 
 	"github.com/bwmarrin/discordgo"
 )

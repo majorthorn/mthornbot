@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/majorthorn/Go-Random/testbed1/bot"
-	"github.com/majorthorn/Go-Random/testbed1/config"
+	"github.com/majorthorn/mthornbot/bot"
+	"github.com/majorthorn/mthornbot/config"
 )
 
 //Start code from tutorial by mgerb42 on youtube
