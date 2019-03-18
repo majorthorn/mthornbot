@@ -45,24 +45,15 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 			fmt.Println("Bot said ", m.Content)
 			return
 		case m.Content == prefix+"ping":
-			_, err := s.ChannelMessageSend(m.ChannelID, "!ping")
+			_, err := s.ChannelMessageSend(m.ChannelID, "pong")
+			if err != nil {
+				fmt.Println(err.Error())
+			}
+		case m.Content == prefix+"disconnect":
+			_, err := s.ChannelMessageSend(m.ChannelID, "Not Implemented yet")
 			if err != nil {
 				fmt.Println(err.Error())
 			}
 		}
-
-		/* 		if m.Author.ID == botID {
-		   			return
-		   		}
-
-		   		if m.Content == "!ping" {
-		   			_, err := s.ChannelMessageSend(m.ChannelID, "pong")
-		   			if err != nil {
-		   				fmt.Println(err.Error())
-		   			}
-
-		   		}
-		*/
 	}
-	// End Code from Tutorial from mgerb42 on Youtube
 }
