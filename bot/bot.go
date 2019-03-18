@@ -8,8 +8,10 @@ import (
 	"github.com/majorthorn/mthornbot/config"
 )
 
-var botID string
-var goBot *discordgo.Session
+var (
+	botID string
+	goBot *discordgo.Session
+)
 
 //Start : Starts the bot
 func Start() {
@@ -37,19 +39,22 @@ func Start() {
 }
 
 func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
-	if strings.HasPrefix(m.Content, config.BotPrefix) {
-		prefix := config.BotPrefix
 
+	message := m.Content
+	authorID := m.Author.ID
+	cmdPrefix := config.BotPrefix
+
+	if strings.HasPrefix(message, cmdPrefix) {
 		switch {
-		case m.Author.ID == botID:
-			fmt.Println("Bot said ", m.Content)
+		case authorID == botID:
+			fmt.Println("Bot said ", message)
 			return
-		case m.Content == prefix+"ping":
+		case message == cmdPrefix+"ping":
 			_, err := s.ChannelMessageSend(m.ChannelID, "pong")
 			if err != nil {
 				fmt.Println(err.Error())
 			}
-		case m.Content == prefix+"disconnect":
+		case message == cmdPrefix+"disconnect":
 			_, err := s.ChannelMessageSend(m.ChannelID, "Not Implemented yet")
 			if err != nil {
 				fmt.Println(err.Error())
