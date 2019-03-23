@@ -1,5 +1,6 @@
 package bot
 
+/*
 import (
 	"fmt"
 	"strings"
@@ -62,3 +63,4 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 	}
 }
+*/
