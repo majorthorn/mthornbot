@@ -30,12 +30,14 @@ func Start() {
 
 	goBot.AddHandler(messageHandler)
 
+	fmt.Println("Connecting to server")
 	err = goBot.Open()
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
-	fmt.Println("Bot is running")
+	fmt.Println("Connected to server")
+
 }
 
 func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
