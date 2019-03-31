@@ -56,11 +56,6 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 			if err != nil {
 				fmt.Println(err.Error())
 			}
-		case message == cmdPrefix+"disconnect":
-			_, err := s.ChannelMessageSend(m.ChannelID, "Not Implemented yet")
-			if err != nil {
-				fmt.Println(err.Error())
-			}
 		}
 	}
 }
