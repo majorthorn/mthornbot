@@ -1,7 +1,8 @@
 #TODO
 
 
-Add !Echo command. Listed below is the suggestion from the Discord Gophers Discord server
+Add !Echo command. using standard Strings Library
+ Listed below is the suggestion from the Discord Gophers Discord server
 
 "Stitch: You should follow this ->
 
