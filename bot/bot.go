@@ -56,6 +56,8 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 			if err != nil {
 				fmt.Println(err.Error())
 			}
+			/* case message == cmdPrefix+"purge":
+			_, err := s.ChannelMessagesBulkDelete(m.ChannelID,) */
 		}
 	}
 }
